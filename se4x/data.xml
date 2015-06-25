@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DATA>
+	<SHIPS>
+        <SHIP Type="SC"             Name="Scout"            Cost="6"    Attack="E3 (A6-8)"  Defense="0" Hull="1" Maint="1"/>
+        <SHIP Type="DD"             Name="Destroyer"        Cost="9"    Attack="D4"         Defense="0" Hull="1" Maint="1"/>
+        <SHIP Type="CA"             Name="Cruiser"          Cost="12"   Attack="C4"         Defense="1" Hull="2" Maint="2"/>
+        <SHIP Type="BC"             Name="Battlecruiser"    Cost="15"   Attack="B5"         Defense="1" Hull="2" Maint="2"/>
+        <SHIP Type="BB"             Name="Battleship"       Cost="20"   Attack="A5"         Defense="2" Hull="3" Maint="3"/>
+        <SHIP Type="DN"             Name="Dreadnaught"      Cost="24"   Attack="A6"         Defense="3" Hull="3" Maint="3"/>
+        <SHIP Type="CO"             Name="Colony Ship"      Cost="8"    Attack="0"          Defense="0" Hull="1" Maint="0"/>
+        <SHIP Type="Base"           Name="Base"             Cost="12"   Attack="A7"         Defense="2" Hull="3" Maint="0"/>
+        <SHIP Type="Miner"          Name="Mining Ship"      Cost="5"    Attack="0"          Defense="0" Hull="1" Maint="0"/>
+        <SHIP Type="Decoy"          Name="Decoy"            Cost="1"    Attack="*"          Defense="*" Hull="*" Maint="0"/>
+        <SHIP Type="SY"             Name="Ship Yard"        Cost="6"    Attack="C3"         Defense="0" Hull="1" Maint="0"/>
+        <SHIP Type="R"              Name="Raider"           Cost="12"   Attack="A/D4/5"     Defense="0" Hull="2" Maint="2"/>
+        <SHIP Type="CV"             Name="Carrier"          Cost="12"   Attack="E3"         Defense="0" Hull="1" Maint="1"/>
+        <SHIP Type="F"              Name="Fighter 1"        Cost="5"    Attack="B5"         Defense="0" Hull="1" Maint="1"/>
+        <SHIP Type="F"              Name="Fighter 2"        Cost="5"    Attack="B6"         Defense="0" Hull="1" Maint="1"/>
+        <SHIP Type="F"              Name="Fighter 3"        Cost="5"    Attack="B7"         Defense="1" Hull="1" Maint="1"/>
+        <SHIP Type="MS Pipeline"    Name="MS Pipeline"      Cost="3"    Attack="0"          Defense="0" Hull="1" Maint="0"/>
+        <SHIP Type="Mines"          Name="Mines"            Cost="5"    Attack="*"          Defense="*" Hull="1" Maint="0"/>
+        <SHIP Type="SW"             Name="Mine Sweeper"     Cost="6"    Attack="E1"         Defense="0" Hull="1" Maint="1"/>
+	</SHIPS>
+    <TECHS>
+    	<TECH Name="ship size"      StartLevel="1" Costs="0,0,10,15,20,25,30"/>
+    	<TECH Name="attack"         StartLevel="0" Costs="0,20,30,40"/>
+    	<TECH Name="defense"        StartLevel="0" Costs="0,20,30,40"/>
+    	<TECH Name="tactics"        StartLevel="0" Costs="0,15,20,30"/>
+        <TECH Name="move"           StartLevel="1" Costs="0,0,10,15,20,25,30"/>
+        <TECH Name="terraform"      StartLevel="0" Costs="0,25"/>
+        <TECH Name="exploration"    StartLevel="0" Costs="0,15"/>
+        <TECH Name="ship yard"      StartLevel="1" Costs="0,0,20,30"/>
+        <TECH Name="fighter"        StartLevel="0" Costs="0,25,30,40"/>
+        <TECH Name="point defense"  StartLevel="0" Costs="0,20,25,30"/>
+        <TECH Name="cloaking"       StartLevel="0" Costs="0,30,40"/>
+        <TECH Name="scanner"        StartLevel="0" Costs="0,20,30"/>
+        <TECH Name="mines"          StartLevel="0" Costs="0,20"/>
+        <TECH Name="mine sweep"     StartLevel="0" Costs="0,10,20"/>
+    </TECHS>
+</DATA>

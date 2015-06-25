@@ -590,7 +590,7 @@ SE4X.GameView = function(game) {
         
         $.ajax( {
             type: "GET",
-            url: "se4x.xml",
+            url: "data.xml",
             dataType: "xml",
             success: function(xml) {
                 self.initialise(xml);

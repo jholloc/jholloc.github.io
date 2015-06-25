@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Space Empires: 4X</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Mono" type="text/css">
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="se4x.css" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="se4x.js"></script>
+    <script type="text/javascript">
+		$( document ).ready(function() {
+		    SE4X.view = new SE4X.GameView(new SE4X.Game());
+		    SE4X.view.load();
+		})
+    </script>
+</head>
+
+<body>
+	<div id="Body">
+        <div id="Menu" class="pure-menu pure-menu-horizontal menu Hidden">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                    <a href="#" class="pure-menu-link">options</a>
+                    <ul class="pure-menu-children">
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="SE4X.view.saveDumpFile()">Save</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="SE4X.view.loadDumpFile()">Load</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="SE4X.view.reset()">Reset</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="SE4X.view.undo()">Undo</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+		<h1 class="pure-centered">Space Empires: 4X</h1>
+        <table class="pure-table" id="FileLoad">
+            <tr><td><label>Select XML data file:</label></td><td><input type="file" id="FileInput" class="Hidden" accept=".xml"/></td></tr>
+        </table>
+	</div>
+	<div id="PopUp" class="popup">
+		<button class="pure-button" id="CloseBtn">Close</button>
+		<div id="Content"/>
+	</div>
+</body>
+
+</html>

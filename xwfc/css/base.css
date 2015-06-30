@@ -45,6 +45,12 @@ button.close {
 	margin-top: 0.5em;
 }
 
+a.sort {
+	float: right;
+	text-decoration: none;
+	color: black;
+}
+
 #Main {
 	position: fixed;
     background-color: rgba(250, 250, 250, 0.5);

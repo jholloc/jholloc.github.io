@@ -41,6 +41,28 @@ XWFC = {
 		this.setFleetType($( "#FleetType" ).val());
 
 		this.fleet = [];
+		this.shipSort = { field:null, dir:null };
+		this.upgradeSort = { field:null, dir:null };
+
+		this.sort = function(type, field, dir) {
+			if (type == "Ships") {
+				this.ships.sort(function (a, b) {
+					if (typeof(a[field]) == "string") return a[field].localeCompare(b[field]);
+					else return a[field] - b[field];
+				});
+				if (dir == 'desc') this.ships.reverse();
+				this.shipSort = { field:field, dir:dir };
+				this.updateShipTable();
+			} else if (type == "Upgrades") {
+				this.upgrades.sort(function (a, b) {
+					if (typeof(a[field]) == "string") return a[field].localeCompare(b[field]);
+					else return a[field] - b[field];
+				});
+				if (dir == 'desc') this.upgrades.reverse();
+				this.upgradeSort = { field:field, dir:dir };
+				this.updateUpgradeTable();		
+			}
+		}
 
 		this.updateFleetTable = function() {
 			$( "#Main table tbody tr" ).remove();
@@ -77,7 +99,19 @@ XWFC = {
 			html = '';
 			fields = [ 'name', 'type', 'cost', '' ];
 			html += '<thead><tr>';
-			fields.map(function(field) { html += '<th>{0}</th>'.format(field); });
+			fields.map(function(field) {
+				if (self.shipSort.field == field) {
+					var dir = self.shipSort.dir == 'asc' ? 'desc': 'asc';
+					var icon = self.shipSort.dir == 'asc' ? 'sort-desc': 'sort-asc';
+				} else {
+					var dir = 'asc';
+					var icon = 'sort';
+				}
+				var link = field.length > 0
+					? '<a href="#" onclick="XWFC.fleet.sort(\'Ships\', \'{0}\', \'{2}\')" class="fa fa-{1} sort"/>'.format(field, icon, dir)
+					: '';
+				html += '<th>{0}{1}</th>'.format(link, field);
+			});
 			html += '</thead></tr>';
 			this.ships.filter(function(ship) { return ship.fleet == self.fleetType; }).map(function(ship) {
                 if (ship.unique && self.fleet.filter(function(s) { return s.name == ship.name; }).length != 0) {
@@ -104,17 +138,43 @@ XWFC = {
 			var html = '';
 			var fields = [ 'name', 'type', 'cost', '' ];
 			html += '<thead><tr>';
-			fields.map(function(field) { html += '<th>{0}</th>'.format(field); });
+			fields.map(function(field) {
+				if (self.upgradeSort.field == field) {
+					var dir = self.upgradeSort.dir == 'asc' ? 'desc': 'asc';
+					var icon = self.upgradeSort.dir == 'asc' ? 'sort-desc': 'sort-asc';
+				} else {
+					var dir = 'asc';
+					var icon = 'sort';
+				}
+				var link = field.length > 0
+					? '<a href="#" onclick="XWFC.fleet.sort(\'Upgrades\', \'{0}\', \'{2}\')" class="fa fa-{1} sort"/>'.format(field, icon, dir)
+					: '';
+				html += '<th>{0}{1}</th>'.format(link, field);
+			});
 			html += '</thead></tr>';
             this.upgrades.map(function(upgrade) {
-            	var numType = self.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
-            	var owned = (self.selectedShip.upgrades.filter(function (u) { return u.name == upgrade.name; }).length > 0);
-                if (!self.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
-                	|| (!owned && numType >= self.selectedShip.upgradeTypes[upgrade.type])) {
-                	return;
-                }
+            	var numType = 0;
+            	var owned = false;
+            	if (self.selectedShip != null) {
+	            	numType = self.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
+	            	owned = (self.selectedShip.upgrades.filter(function (u) { return u.name == upgrade.name; }).length > 0);
+	                if (!self.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
+	                		|| (!owned && numType >= self.selectedShip.upgradeTypes[upgrade.type])) {
+	                	return;
+	                }
+	                if (!owned && upgrade.unique) {
+	                	var allUpgrades = [].concat.apply([], self.fleet.map(function (ship) { return ship.upgrades }));
+	                	if (allUpgrades.filter(function (u) { return u.name == upgrade.name }).length > 0) {
+	                		return;
+	                	}
+	                }
+	            }
                 html +=  owned ? '<tr class="owned">' : '<tr>';
-				html += '<td>{0}</td>'.format(upgrade.name);
+				if (upgrade.unique) {
+                    html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + upgrade.name);
+				} else {
+					html += '<td>{0}</td>'.format(upgrade.name);
+				}
 				html += '<td>{0}</td>'.format(upgrade.type);
                 html += '<td>{0}</td>'.format(upgrade.cost);
 				html += owned
@@ -197,6 +257,9 @@ XWFC = {
 				});
 				self.ships.push({ name:name, type:type, cost:cost, fleet:fleet, unique:unique, upgradeTypes:upgradeTypes });
 			} );
+
+			this.sort('Ships', 'name', 'asc');
+			this.sort('Upgrades', 'name', 'asc');
 		}
         
         this.initialise = function(xml) {

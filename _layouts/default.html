@@ -7,8 +7,16 @@
     <body>
         <nav>
             <ul>
+                {% if page.title == 'Home' %}
                 <li class="current">Home</li>
-                <li><a href="about/">About</a></li>
+                {% else %}
+                <li><a href="/">Home</a></li>
+                {% endif %}
+                {% if page.title == 'About' %}
+                <li class="current">About</li>
+                {% else %}
+                <li><a href="/">About</a></li>
+                {% endif %}
                 <li><a href="se4x/">Space Empires: 4X</a></li>
                 <li><a href="xwfc/">X-Wing Fleet Creator</a></li>
             </ul>

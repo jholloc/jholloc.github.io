@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DATA>
+  <UPGRADES>
+    <!-- Piloting -->
+    <UPGRADE Name="Determination"       Type="Piloting"   Cost="1" Unique="False"/>
+    <UPGRADE Name="Marksmanship"        Type="Piloting"   Cost="1" Unique="False"/>
+    <UPGRADE Name="Swarm Tactics"       Type="Piloting"   Cost="2" Unique="False"/>
+    <UPGRADE Name="Expert Handling"     Type="Piloting"   Cost="2" Unique="False"/>
+    <UPGRADE Name="Squad Leader"        Type="Piloting"   Cost="2" Unique="False"/>
+
+    <!-- Missiles -->
+    <UPGRADE Name="Concussion Missiles" Type="Missiles"   Cost="4" Unique="False"/>
+    <UPGRADE Name="Cluster Missiles"    Type="Missiles"   Cost="4" Unique="False"/>
+
+    <!-- Astromech -->
+    <UPGRADE Name="R5-D8"               Type="Astromech"  Cost="3" Unique="True" />
+    <UPGRADE Name="R2-F2"               Type="Astromech"  Cost="3" Unique="True" />
+    <UPGRADE Name="R2-D2"               Type="Astromech"  Cost="4" Unique="True" />
+    <UPGRADE Name="R2 Astromech"        Type="Astromech"  Cost="1" Unique="False"/>
+    <UPGRADE Name="R5 Astromech"        Type="Astromech"  Cost="1" Unique="False"/>
+    <UPGRADE Name="R5-K6"               Type="Astromech"  Cost="2" Unique="True"/>
+
+    <!-- Turret -->
+    <UPGRADE Name="Ion Cannon Turrent"  Type="Turret"     Cost="5" Unique="False"/>
+
+    <!-- Torpedoes -->
+    <UPGRADE Name="Proton Torpedoes"    Type="Torpedoes"  Cost="4" Unique="False"/>
+  </UPGRADES>
+  <SHIPS>
+    <!-- Imperial Ships -->
+    <SHIP Name="Academy Pilot"            Type="Tie Fighter"    Cost="12" FleetType="Imperial" Unique="False"  UpgradeTypes=""/>
+    <SHIP Name="Mauler Mithel"            Type="Tie Fighter"    Cost="17" FleetType="Imperial" Unique="True"   UpgradeTypes="Piloting"/>
+    <SHIP Name="Night Beast"              Type="Tie Fighter"    Cost="15" FleetType="Imperial" Unique="True"   UpgradeTypes=""/>
+    <SHIP Name="Backstabber"              Type="Tie Advanced"   Cost="21" FleetType="Imperial" Unique="True"   UpgradeTypes=""/>
+    <SHIP Name="Tempest Squadron Pilot"   Type="Tie Fighter"    Cost="21" FleetType="Imperial" Unique="False"  UpgradeTypes="Missiles"/>
+    <SHIP Name="Dark Curse"               Type="Tie Fighter"    Cost="16" FleetType="Imperial" Unique="True"   UpgradeTypes=""/>
+    <SHIP Name="Black Squadron Pilot"     Type="Tie Fighter"    Cost="14" FleetType="Imperial" Unique="False"  UpgradeTypes="Piloting"/>
+    <SHIP Name="Obsidian Squadron Pilot"  Type="Tie Fighter"    Cost="13" FleetType="Imperial" Unique="False"  UpgradeTypes=""/>
+    <SHIP Name="Storm Squadron Pilot"     Type="Tie Advanced"   Cost="23" FleetType="Imperial" Unique="False"  UpgradeTypes="Missiles"/>
+    <SHIP Name="Winged Gundark"           Type="Tie Fighter"    Cost="15" FleetType="Imperial" Unique="True"   UpgradeTypes=""/>
+    <SHIP Name="Howlrunner"               Type="Tie Fighter"    Cost="18" FleetType="Imperial" Unique="True"   UpgradeTypes="Piloting"/>
+    <SHIP Name="Maarek Stele"             Type="Tie Advanced"   Cost="27" FleetType="Imperial" Unique="True"   UpgradeTypes="Piloting,Missiles"/>
+    <SHIP Name="Darth Vader"              Type="Tie Advanced"   Cost="29" FleetType="Imperial" Unique="True"   UpgradeTypes="Piloting,Missiles"/>
+
+    <!-- Rebel Ships -->
+    <SHIP Name="Red Squadron Pilot"     Type="X-Wing"   Cost="23" FleetType="Rebel" Unique="False" UpgradeTypes="Torpedoes,Astromech"/>
+    <SHIP Name="Horton Salm"            Type="Y-Wing"   Cost="25" FleetType="Rebel" Unique="True"  UpgradeTypes="Turret,Torpedoes,Torpedoes,Astromech"/>
+    <SHIP Name="Gold Squadron Pilot"    Type="Y-Wing"   Cost="18" FleetType="Rebel" Unique="False" UpgradeTypes="Turret,Torpedoes,Torpedoes,Astromech"/>
+    <SHIP Name="Rookie Pilot"           Type="X-Wing"   Cost="21" FleetType="Rebel" Unique="False" UpgradeTypes="Torpedoes,Astromech"/>
+    <SHIP Name="Garven Dreis"           Type="X-Wing"   Cost="26" FleetType="Rebel" Unique="True"  UpgradeTypes="Torpedoes,Astromech"/>
+    <SHIP Name="Gray Squadron Pilot"    Type="Y-Wing"   Cost="20" FleetType="Rebel" Unique="True"  UpgradeTypes="Turret,Torpedoes,Torpedoes,Astromech"/>
+    <SHIP Name="Biggs Darklighter"      Type="X-Wing"   Cost="25" FleetType="Rebel" Unique="False" UpgradeTypes="Torpedoes,Astromech"/>
+    <SHIP Name="Dutch Vander"           Type="Y-Wing"   Cost="23" FleetType="Rebel" Unique="True"  UpgradeTypes="Turret,Torpedoes,Torpedoes,Astromech"/>
+    <SHIP Name="Wedge Antilles"         Type="X-Wing"   Cost="29" FleetType="Rebel" Unique="True"  UpgradeTypes="Piloting,Torpedoes,Astromech"/>
+    <SHIP Name="Luke Skywalker"         Type="X-Wing"   Cost="28" FleetType="Rebel" Unique="True"  UpgradeTypes="Piloting,Torpedoes,Astromech"/>
+  </SHIPS>
+</DATA>

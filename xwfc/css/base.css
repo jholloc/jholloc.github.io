@@ -1,0 +1,118 @@
+body {
+	font-family: 'Orbitron', sans-serif;
+    background-image: url('../images/background.jpg');
+}
+
+button {
+    text-shadow: 1px 1px 0px grey;
+}
+
+span.dot {
+	font-size: 0.5em;
+	vertical-align: middle;
+	padding-right: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+div.popup {
+	position: fixed;
+	background-color: #FAFAFA;
+	width: 60%;
+	height: 60%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding-left: 1em;
+	padding-right: 1em;
+	overflow: auto;
+    display: none;
+}
+
+div.popup table {
+	min-width: 100%;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+button.close {
+	float: right;
+	margin-top: 0.5em;
+}
+
+#Main {
+	position: fixed;
+    background-color: rgba(250, 250, 250, 0.5);
+	width: 80%;
+	height: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	padding-left: 1em;
+	padding-right: 1em;
+	overflow: auto;
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+table thead {
+    text-transform: uppercase;
+}
+
+#Main table {
+	width: 100%;
+}
+
+table th:first-child {
+    width: 50%;
+}
+
+table tr {
+    white-space: nowrap;
+}
+
+tr.owned {
+    background-color: #DADADA;
+    color: #9F9F9F;
+}
+
+#Main table tfoot {
+    background-color: rgba(250, 250, 250, 0.3);
+}
+
+table#FileLoad {
+    display: none;
+    width: 100%;
+	margin: auto;
+}
+
+select#FleetType {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    font-size: large;
+}
+
+select#FleetType option[value="Imperial"] {
+    text-shadow: 1px 1px 0px red;
+}
+
+select#FleetType option[value="Rebel"] {
+    text-shadow: 1px 1px 0px blue;
+}
+
+.disabled {
+    color: gray;
+    background-color: lightgray;
+}

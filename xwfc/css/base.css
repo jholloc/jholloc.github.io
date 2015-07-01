@@ -75,6 +75,10 @@ table thead {
     text-transform: uppercase;
 }
 
+table th span {
+	margin-right: 1em;
+}
+
 #Main table {
 	width: 100%;
 }

@@ -25,16 +25,15 @@
     <UPGRADE Name="Concussion Missiles" Type="Missile" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Assault Missiles" Type="Missile" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Proton Torpedoes" Type="Torpedo" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="Fletchette Torpedoes" Type="Torpedo" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Flechette Torpedoes" Type="Torpedo" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Ion Cannon Turret" Type="Turret" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="Blaster Turrent" Type="Turret" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Blaster Turret" Type="Turret" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Millennium Falcon" Type="Title" Cost="1" FleetType="" Unique="TRUE" Limited="FALSE" Ship="YT-1300" ShipSize=""/>
     <UPGRADE Name="ST-321" Type="Title" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="Lambda-Class Shuttle" ShipSize=""/>
     <UPGRADE Name="Moldy Crow" Type="Title" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="HWK-290" ShipSize=""/>
     <UPGRADE Name="A-Wing Test Pilot" Type="Title" Cost="0" FleetType="" Unique="FALSE" Limited="FALSE" Ship="A-Wing" ShipSize=""/>
     <UPGRADE Name="Autoblaster" Type="Cannon" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Heavy Laser Cannon" Type="Cannon" Cost="7" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="Ion Cannon" Type="Cannon" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Anti-Pursuit Lasers" Type="Modification" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize="Large"/>
     <UPGRADE Name="Advanced Cloaking Device" Type="Modification" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="TIE Phantom" ShipSize=""/>
     <UPGRADE Name="Stygium Particle Accelerator" Type="Modification" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
@@ -76,7 +75,7 @@
     <UPGRADE Name="Elusiveness" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Adrenaline Rush" Type="Pilot" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Expose" Type="Pilot" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="Veteren Instincts" Type="Pilot" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Veteran Instincts" Type="Pilot" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Expert Handling" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Decoy" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Wingman" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
@@ -174,7 +173,7 @@
     <SHIP Name="Tycho Celchu" Type="A-Wing" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
     <SHIP Name="Green Squadron Pilot" Type="A-Wing" Cost="19" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Pilot,Missile"/>
     <SHIP Name="Arvel Crynyd" Type="A-Wing" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Jake Farrel" Type="A-Wing" Cost="24" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Jake Farrell" Type="A-Wing" Cost="24" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
     <SHIP Name="Dagger Squadron Pilot" Type="B-Wing" Cost="24" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>
     <SHIP Name="Ibtisam" Type="B-Wing" Cost="28" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
     <SHIP Name="Blue Squadron Pilot" Type="B-Wing" Cost="22" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>

@@ -1,5 +1,6 @@
 body {
-	font-family: 'Orbitron', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+    font-size: large;
     font-variant: small-caps;
     background-image: url('../images/background.jpg');
 }
@@ -96,6 +97,10 @@ table tr {
     white-space: nowrap;
 }
 
+table td {
+    font-size: large !important;
+}
+
 tr.owned {
     background-color: #F0F0F0;
     color: #7F7F7F;
@@ -116,7 +121,7 @@ select#FleetType {
     right: 0;
     margin-top: 0.5em;
     margin-right: 0.5em;
-    font-size: large;
+    font-size: x-large;
 }
 
 select#FleetType option[value="Imperial"] {
@@ -130,4 +135,26 @@ select#FleetType option[value="Rebel"] {
 .disabled {
     color: gray;
     background-color: lightgray;
+}
+
+a.tooltip {
+    text-decoration: none;
+    color: black;
+}
+
+a.tooltip span.image {
+    display: none;
+    padding: 0.5em;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid grey;
+    background-color: #FAFAFA;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px grey;
+}
+
+a.tooltip:hover span.image {
+    display: inline;
 }

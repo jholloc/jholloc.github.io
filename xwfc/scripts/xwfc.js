@@ -103,18 +103,26 @@ XWFC = {
 			return false;
 		}
         
-        this.shipRow = function(ship) {
-            var self = this;
-            var html = '';
-            if (ship.unique && self.hasNamedItem(ship.name)) {
-                return;
-            }
-            html += '<tr>';
-            if (ship.unique) {
-                html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(ship.name));
+        this.tooltipName = function(folder, unique, name) {
+            var html = '<a href="#" class="tooltip">'
+            if (unique) {
+                html += XWFC.uniqueSymbol() + name;
             } else {
-                html += '<td>{0}</td>'.format(unescape(ship.name));
+                html += name;
             }
+            var img = name.toLowerCase().replace(/"/g, '').replace(/ /g, '_').replace(/'/g, '').replace(/\//g, '-');
+            html += '<span class="image"><img src="images/{0}/{1}.png" style="float:right;" /></span>'.format(folder, img);
+            html += '</a>';
+            return html;
+        }
+        
+        this.shipRow = function(ship) {
+            var html = '';
+            if (ship.unique && this.hasNamedItem(ship.name)) {
+                return;
+            }      
+            html += '<tr>';
+            html += '<td>{0}</td>'.format(this.tooltipName('ships', ship.unique, unescape(ship.name)));
             html += '<td>{0}</td>'.format(ship.type);
             html += '<td>{0}</td>'.format(ship.cost);
             html += '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addShip(\'' + ship.name + '\')">Add</button>');
@@ -174,11 +182,7 @@ XWFC = {
                 }
             }
             html +=  owned ? '<tr class="owned">' : '<tr>';
-            if (upgrade.unique) {
-                html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(upgrade.name));
-            } else {
-                html += '<td>{0}</td>'.format(unescape(upgrade.name));
-            }
+            html += '<td>{0}</td>'.format(this.tooltipName('upgrades', upgrade.unique, unescape(upgrade.name)));
             html += '<td>{0}</td>'.format(upgrade.type);
             html += '<td>{0}</td>'.format(upgrade.cost);
             html += owned

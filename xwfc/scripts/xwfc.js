@@ -102,6 +102,25 @@ XWFC = {
 			}
 			return false;
 		}
+        
+        this.shipRow = function(ship) {
+            var self = this;
+            var html = '';
+            if (ship.unique && self.hasNamedItem(ship.name)) {
+                return;
+            }
+            html += '<tr>';
+            if (ship.unique) {
+                html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(ship.name));
+            } else {
+                html += '<td>{0}</td>'.format(unescape(ship.name));
+            }
+            html += '<td>{0}</td>'.format(ship.type);
+            html += '<td>{0}</td>'.format(ship.cost);
+            html += '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addShip(\'' + ship.name + '\')">Add</button>');
+            html += '</tr>';
+            return html;
+        }
 
 		this.updateShipTable = function() {
             var self = this;
@@ -125,22 +144,49 @@ XWFC = {
 			});
 			html += '</thead></tr>';
 			this.ships.filter(function(ship) { return ship.fleet == self.fleetType; }).map(function(ship) {
-                if (ship.unique && self.hasNamedItem(ship.name)) {
-                    return;
-                }
-				html += '<tr>';
-				if (ship.unique) {
-                    html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(ship.name));
-				} else {
-					html += '<td>{0}</td>'.format(unescape(ship.name));
-				}
-				html += '<td>{0}</td>'.format(ship.type);
-				html += '<td>{0}</td>'.format(ship.cost);
-				html += '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addShip(\'' + ship.name + '\')">Add</button>');
-				html += '</tr>';
+                html += self.shipRow(ship);
 			});
 			$( "#Ships table" ).html( html );
 		}
+        
+        this.upgradeRow = function(upgrade) {
+            var self = this;
+            var html = '';
+            if (upgrade.fleet.length > 0 && upgrade.fleet != self.fleetType) {
+                return;
+            }
+            var numType = 0;
+            var owned = upgrade.owned;
+            if (self.selectedShip != null) {
+                if (upgrade.ship.length > 0 && upgrade.ship != self.selectedShip.type) {
+                    return;
+                }
+                if (upgrade.shipSize.length > 0 && upgrade.shipSize != self.selectedShip.size) {
+                    return;
+                }
+                numType = self.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
+                if (!self.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
+                        || (!owned && numType >= self.selectedShip.upgradeTypes[upgrade.type])) {
+                    return;
+                }
+                if (!owned && upgrade.unique && self.hasNamedItem(upgrade.name)) {
+                    return;
+                }
+            }
+            html +=  owned ? '<tr class="owned">' : '<tr>';
+            if (upgrade.unique) {
+                html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(upgrade.name));
+            } else {
+                html += '<td>{0}</td>'.format(unescape(upgrade.name));
+            }
+            html += '<td>{0}</td>'.format(upgrade.type);
+            html += '<td>{0}</td>'.format(upgrade.cost);
+            html += owned
+                ? '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.removeUpgrade(\'' + upgrade.name + '\')">Remove</button>')
+                : '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addUpgrade(\'' + upgrade.name + '\')">Add</button>');
+            html += '</tr>';
+            return html;
+        }
         
         this.updateUpgradeTable = function() {
             var self = this;
@@ -160,42 +206,13 @@ XWFC = {
 				var link = field.length > 0
 					? '<a href="#" onclick="XWFC.fleet.sort(\'Upgrades\', \'{0}\', \'{2}\')" class="fa fa-{1} sort"/>'.format(field, icon, dir)
 					: '';
-				html += '<th>{0}{1}</th>'.format(link, field);
+				html += '<th>{0}<span>{1}</span></th>'.format(link, field);
 			});
 			html += '</thead></tr>';
-            this.upgrades.map(function(upgrade) {
-            	if (upgrade.fleet.length > 0 && upgrade.fleet != self.fleetType) {
-            		return;
-            	}
-            	if (upgrade.ship.length > 0 && upgrade.ship != self.selectedShip.type) {
-            		return;
-            	}
-            	var numType = 0;
-            	var owned = false;
-            	if (self.selectedShip != null) {
-	            	numType = self.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
-	            	owned = (self.selectedShip.upgrades.filter(function (u) { return u.name == upgrade.name; }).length > 0);
-	                if (!self.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
-	                		|| (!owned && numType >= self.selectedShip.upgradeTypes[upgrade.type])) {
-	                	return;
-	                }
-	                if (!owned && upgrade.unique && self.hasNamedItem(upgrade.name)) {
-	                	return;
-	                }
-	            }
-                html +=  owned ? '<tr class="owned">' : '<tr>';
-				if (upgrade.unique) {
-                    html += '<td valign="middle">{0}</td>'.format(XWFC.uniqueSymbol() + unescape(upgrade.name));
-				} else {
-					html += '<td>{0}</td>'.format(unescape(upgrade.name));
-				}
-				html += '<td>{0}</td>'.format(upgrade.type);
-                html += '<td>{0}</td>'.format(upgrade.cost);
-				html += owned
-                    ? '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.removeUpgrade(\'' + upgrade.name + '\')">Remove</button>')
-                    : '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addUpgrade(\'' + upgrade.name + '\')">Add</button>');
-				html += '</tr>';
-            });
+            if (self.selectedShip != null) {
+                this.selectedShip.upgrades.map(function(upgrade) { html += self.upgradeRow(upgrade); });
+            }
+            this.upgrades.map(function(upgrade) { html += self.upgradeRow(upgrade); });
 			$( "#Upgrades table" ).html( html );
         }
 
@@ -214,7 +231,9 @@ XWFC = {
         
         this.addUpgrade = function(name) {
             var upgrade = this.upgrades.filter(function (upgrade) { return upgrade.name == name; })[0];
-            this.selectedShip.upgrades.push($.extend({}, upgrade));
+            upgrade = $.extend({}, upgrade);
+            upgrade.owned = true;
+            this.selectedShip.upgrades.push(upgrade);
             this.updateUpgradeTable();
             this.updateFleetTable();
         }
@@ -254,7 +273,8 @@ XWFC = {
 				var unique = node.attr( "Unique" ).toUpperCase() == "TRUE";
 				var fleet = node.attr( "FleetType" );
 				var ship = node.attr( "Ship" );
-				self.upgrades.push({ name:name, type:type, cost:cost, unique:unique, fleet:fleet, ship:ship });
+                var shipSize = node.attr( "ShipSize" );
+				self.upgrades.push({ name:name, type:type, cost:cost, unique:unique, fleet:fleet, ship:ship, shipSize:shipSize });
 			} );
 
 			xml.find( "SHIPS SHIP" ).each( function() {
@@ -264,6 +284,7 @@ XWFC = {
 				var cost = parseInt(node.attr( "Cost" ));
 				var fleet = node.attr( "FleetType" );
 				var unique = node.attr( "Unique" ).toUpperCase() == "TRUE";
+                var size = node.attr("Size");
 				var upgradeTypes = { Modification: 1, Title: 1 };
 				node.attr( "UpgradeTypes" ).split(",").map(function (type) {
 					if (!upgradeTypes.hasOwnProperty(type)) {
@@ -271,7 +292,7 @@ XWFC = {
 					}
 					upgradeTypes[type] += 1;
 				});
-				self.ships.push({ name:name, type:type, cost:cost, fleet:fleet, unique:unique, upgradeTypes:upgradeTypes });
+				self.ships.push({ name:name, type:type, cost:cost, fleet:fleet, unique:unique, size:size, upgradeTypes:upgradeTypes });
 			} );
 
 			this.sort('Ships', 'name', 'asc');

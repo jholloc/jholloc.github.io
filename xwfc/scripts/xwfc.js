@@ -264,7 +264,7 @@ XWFC = {
 				var cost = parseInt(node.attr( "Cost" ));
 				var fleet = node.attr( "FleetType" );
 				var unique = node.attr( "Unique" ).toUpperCase() == "TRUE";
-				var upgradeTypes = { Modification: 1 };
+				var upgradeTypes = { Modification: 1, Title: 1 };
 				node.attr( "UpgradeTypes" ).split(",").map(function (type) {
 					if (!upgradeTypes.hasOwnProperty(type)) {
 						upgradeTypes[type] = 0;

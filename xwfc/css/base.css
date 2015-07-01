@@ -23,8 +23,8 @@ span.dot {
 div.popup {
 	position: fixed;
 	background-color: #FAFAFA;
-	width: 60%;
-	height: 60%;
+    width: 90%;
+    height: 90%;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -40,6 +40,7 @@ div.popup {
 
 div.popup table {
 	min-width: 100%;
+    margin-bottom: 0.5em;
 }
 
 button {
@@ -60,7 +61,7 @@ a.sort {
 #Main {
 	position: fixed;
     background-color: rgba(250, 250, 250, 0.5);
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	left: 0;
 	right: 0;
@@ -93,8 +94,26 @@ table th:first-child {
     width: 50%;
 }
 
-table tr {
-    white-space: nowrap;
+@media only screen and (min-width: 1025px) {
+    div.popup {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    div.popup {
+        width: 60%;
+        height: 60%;
+    }
+    
+    #Main {
+        width: 80%;
+    }
+    
+    table tr {
+        white-space: nowrap;
+    }
 }
 
 table td {

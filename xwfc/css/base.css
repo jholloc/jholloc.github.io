@@ -94,6 +94,12 @@ table th:first-child {
     width: 50%;
 }
 
+@media only screen and (min-width: 800px) {
+    #Main table td:nth-child(2) {
+        white-space: nowrap;
+    }
+}
+
 @media only screen and (min-width: 1025px) {
     div.popup {
         width: 80%;

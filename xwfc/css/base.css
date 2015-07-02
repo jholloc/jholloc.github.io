@@ -169,12 +169,25 @@ a.tooltip {
 
 a.tooltip span.image {
     display: none;
-    padding: 0.5em;
     position: fixed;
+    left: 20%;
+}
+
+a.tooltip span.image img {
+    margin: 0.5em;
+}
+
+div#Main a.tooltip span.image img {
+    float: left;
+    box-shadow: 5px 5px 8px black;
+    border-radius: 10px;
+}
+
+div.popup a.tooltip span.image {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid grey;
+    border: 1px solid lightgray;
     background-color: #FAFAFA;
     border-radius: 20px;
     box-shadow: 5px 5px 8px grey;

@@ -63,17 +63,46 @@ XWFC = {
 				this.updateUpgradeTable();		
 			}
 		}
+        
+		this.hasNamedItem = function(name) {
+			if (this.fleet.filter(function(ship) { return ship.name == name; }).length != 0) {
+				return true;
+			}
+			var allUpgrades = [].concat.apply([], this.fleet.map(function (ship) { return ship.upgrades }));
+			if (allUpgrades.filter(function(upgrade) { return upgrade.name == name; }).length != 0) {
+				return true;
+			}
+			return false;
+		}
+        
+        this.fleetTooltip = function(ship) {
+            var name = unescape(ship.name);
+            var html = '<a href="#" class="tooltip">'
+            if (ship.unique) {
+                html += XWFC.uniqueSymbol() + name;
+            } else {
+                html += name;
+            }
+            var img = name.toLowerCase().replace(/"/g, '').replace(/ /g, '_').replace(/'/g, '').replace(/\//g, '-');
+            html += '<span class="image">';
+            html += '<img src="images/ships/{0}.png" />'.format(img);
+            ship.upgrades.map(function(upgrade) {
+                name = unescape(upgrade.name);
+                img = name.toLowerCase().replace(/"/g, '').replace(/ /g, '_').replace(/'/g, '').replace(/\//g, '-');
+                html += '<img src="images/upgrades/{0}.png" />'.format(img);
+            });
+            html += '</span>';
+            html += '</a>';
+            return html;
+        }
 
 		this.updateFleetTable = function() {
+            var self = this;
 			$( "#Main table tbody tr" ).remove();
 			var totalCost = 0;
 			this.fleet.map(function(ship, idx) {
 				var html = '<tr>';
-				if (ship.unique) {
-					html += '<td>{0}{1}</td>'.format(XWFC.uniqueSymbol(), unescape(ship.name));
-				} else {
-					html += '<td>{0}</td>'.format(unescape(ship.name));
-				}
+                html += '<td>{0}</td>'.format(self.fleetTooltip(ship));
 				html += '<td>{0}</td>'.format(ship.type);
 				html += '<td><button class="pure-button" onclick="XWFC.fleet.upgradeShip(' + idx + ')">Upgrade</button></td>';
                 var costStr = '{0}'.format(ship.cost);
@@ -91,19 +120,8 @@ XWFC = {
 			});
 			$( "#TotalCost" ).html( totalCost );
 		}
-
-		this.hasNamedItem = function(name) {
-			if (this.fleet.filter(function(ship) { return ship.name == name; }).length != 0) {
-				return true;
-			}
-			var allUpgrades = [].concat.apply([], this.fleet.map(function (ship) { return ship.upgrades }));
-			if (allUpgrades.filter(function(upgrade) { return upgrade.name == name; }).length != 0) {
-				return true;
-			}
-			return false;
-		}
         
-        this.tooltipName = function(folder, unique, name) {
+        this.popupTooltip = function(folder, unique, name) {
             var html = '<a href="#" class="tooltip">'
             if (unique) {
                 html += XWFC.uniqueSymbol() + name;
@@ -111,18 +129,18 @@ XWFC = {
                 html += name;
             }
             var img = name.toLowerCase().replace(/"/g, '').replace(/ /g, '_').replace(/'/g, '').replace(/\//g, '-');
-            html += '<span class="image"><img src="images/{0}/{1}.png" style="float:right;" /></span>'.format(folder, img);
+            html += '<span class="image"><img src="images/{0}/{1}.png" /></span>'.format(folder, img);
             html += '</a>';
             return html;
         }
-        
+
         this.shipRow = function(ship) {
             var html = '';
             if (ship.unique && this.hasNamedItem(ship.name)) {
                 return;
             }      
             html += '<tr>';
-            html += '<td>{0}</td>'.format(this.tooltipName('ships', ship.unique, unescape(ship.name)));
+            html += '<td>{0}</td>'.format(this.popupTooltip('ships', ship.unique, unescape(ship.name)));
             html += '<td>{0}</td>'.format(ship.type);
             html += '<td>{0}</td>'.format(ship.cost);
             html += '<td>{0}</td>'.format('<button class="pure-button" onclick="XWFC.fleet.addShip(\'' + ship.name + '\')">Add</button>');
@@ -156,33 +174,61 @@ XWFC = {
 			});
 			$( "#Ships table" ).html( html );
 		}
+
+        this.opFunction = function(opStr) {
+            switch (opStr) {
+                case '<': return function(a, b) { return a < b; }
+                case '>': return function(a, b) { return a > b; }
+                case '=': return function(a, b) { return a == b; }
+            }
+        }
+                  
+        this.canBuy = function(upgrade) {
+            var self = this;
+            var ship = this.selectedShip;
+            var failingRules = upgrade.rules['CanBuy'].filter(function (rule) {
+                if (rule.type == 'Check') {
+                    var op = self.opFunction(rule.op);
+                    if (rule.name && !op(ship[rule.field][name], rule.value)) {
+                        return true;
+                    } else if (!op(ship[rule.field], rule.value)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            return failingRules.length == 0;
+        }
         
         this.upgradeRow = function(upgrade) {
             var self = this;
             var html = '';
-            if (upgrade.fleet.length > 0 && upgrade.fleet != self.fleetType) {
+            if (upgrade.fleet.length > 0 && upgrade.fleet != this.fleetType) {
                 return;
             }
             var numType = 0;
             var owned = upgrade.owned;
-            if (self.selectedShip != null) {
-                if (upgrade.ship.length > 0 && upgrade.ship != self.selectedShip.type) {
+            if (this.selectedShip != null) {
+                if (!this.canBuy(upgrade)) {
                     return;
                 }
-                if (upgrade.shipSize.length > 0 && upgrade.shipSize != self.selectedShip.size) {
+                if (upgrade.ship.length > 0 && upgrade.ship != this.selectedShip.type) {
                     return;
                 }
-                numType = self.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
-                if (!self.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
-                        || (!owned && numType >= self.selectedShip.upgradeTypes[upgrade.type])) {
+                if (upgrade.shipSize.length > 0 && upgrade.shipSize != this.selectedShip.size) {
                     return;
                 }
-                if (!owned && upgrade.unique && self.hasNamedItem(upgrade.name)) {
+                numType = this.selectedShip.upgrades.filter(function (u) { return u.type == upgrade.type; }).length;
+                if (!this.selectedShip.upgradeTypes.hasOwnProperty(upgrade.type)
+                        || (!owned && numType >= this.selectedShip.upgradeTypes[upgrade.type])) {
+                    return;
+                }
+                if (!owned && upgrade.unique && this.hasNamedItem(upgrade.name)) {
                     return;
                 }
             }
             html +=  owned ? '<tr class="owned">' : '<tr>';
-            html += '<td>{0}</td>'.format(this.tooltipName('upgrades', upgrade.unique, unescape(upgrade.name)));
+            html += '<td>{0}</td>'.format(this.popupTooltip('upgrades', upgrade.unique, unescape(upgrade.name)));
             html += '<td>{0}</td>'.format(upgrade.type);
             html += '<td>{0}</td>'.format(upgrade.cost);
             html += owned
@@ -278,13 +324,34 @@ XWFC = {
 				var fleet = node.attr( "FleetType" );
 				var ship = node.attr( "Ship" );
                 var shipSize = node.attr( "ShipSize" );
-				self.upgrades.push({ name:name, type:type, cost:cost, unique:unique, fleet:fleet, ship:ship, shipSize:shipSize });
+                var rules = { 'OnBuy': [], 'CanBuy': [] };
+                node.find( "RULE" ).each( function() {
+                    var rule = $( this );
+                    var event = rule.attr( "Event" );
+                    rule.find( "MODIFY" ).each( function() {
+                        var action = $( this );
+                        var field = action.attr( "Field" );
+                        var name = action.attr( "Name" );
+                        var value = parseInt(action.attr( "Value" ));
+                        rules[event].push({ type:'Modify', field:field, name:name, value:value });
+                    } );
+                    rule.find( "CHECK" ).each( function() {
+                        var action = $( this );
+                        var field = action.attr( "Field" );
+                        var name = action.attr( "Name" );
+                        var op = action.attr( "Op" );
+                        var value = parseInt(action.attr( "Value" ));
+                        rules[event].push({ type:'Check', field:field, name:name, op:op, value:value });
+                    } );
+                } );
+				self.upgrades.push({ name:name, type:type, cost:cost, unique:unique, fleet:fleet, ship:ship, shipSize:shipSize, rules:rules });
 			} );
 
 			xml.find( "SHIPS SHIP" ).each( function() {
 				var node = $( this );
 				var name = escape(node.attr( "Name" ));
 				var type = node.attr( "Type" );
+                var level = parseInt(node.attr( "Level" ));
 				var cost = parseInt(node.attr( "Cost" ));
 				var fleet = node.attr( "FleetType" );
 				var unique = node.attr( "Unique" ).toUpperCase() == "TRUE";
@@ -296,7 +363,7 @@ XWFC = {
 					}
 					upgradeTypes[type] += 1;
 				});
-				self.ships.push({ name:name, type:type, cost:cost, fleet:fleet, unique:unique, size:size, upgradeTypes:upgradeTypes });
+				self.ships.push({ name:name, type:type, level:level, cost:cost, fleet:fleet, unique:unique, size:size, upgradeTypes:upgradeTypes });
 			} );
 
 			this.sort('Ships', 'name', 'asc');

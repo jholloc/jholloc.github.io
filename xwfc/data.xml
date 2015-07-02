@@ -12,7 +12,7 @@
     <UPGRADE Name="Comms Booster" Type="Energy" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Dodonna's Pride" Type="Title" Cost="4" FleetType="" Unique="TRUE" Limited="FALSE" Ship="CR90" ShipSize=""/>
     <UPGRADE Name="Jaina's Light" Type="Title" Cost="2" FleetType="" Unique="TRUE" Limited="FALSE" Ship="CR90" ShipSize=""/>
-    <UPGRADE Name="Tantive IV" Type="Title" Cost="4" FleetType="" Unique="TRUE" Limited="FALSE" Ship="CR90" ShipSize=""/>
+    <UPGRADE Name="Tantive IV" Type="Title" Cost="4" FleetType="" Unique="TRUE" Limited="FALSE" Ship="CR90" ShipSize=""><RULE Event="OnBuy"><MODIFY Field="upgradeTypes" Name="Crew" Value="+1"/><MODIFY Field="upgradeTypes" Name="Team" Value="+1"/></RULE></UPGRADE>
     <UPGRADE Name="Determination" Type="Pilot" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Ion Pulse Missiles" Type="Missile" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Ion Cannon" Type="Cannon" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
@@ -31,14 +31,14 @@
     <UPGRADE Name="Millennium Falcon" Type="Title" Cost="1" FleetType="" Unique="TRUE" Limited="FALSE" Ship="YT-1300" ShipSize=""/>
     <UPGRADE Name="ST-321" Type="Title" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="Lambda-Class Shuttle" ShipSize=""/>
     <UPGRADE Name="Moldy Crow" Type="Title" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="HWK-290" ShipSize=""/>
-    <UPGRADE Name="A-Wing Test Pilot" Type="Title" Cost="0" FleetType="" Unique="FALSE" Limited="FALSE" Ship="A-Wing" ShipSize=""/>
+    <UPGRADE Name="A-Wing Test Pilot" Type="Title" Cost="0" FleetType="" Unique="FALSE" Limited="FALSE" Ship="A-Wing" ShipSize=""><RULE Event="OnBuy"><MODIFY Field="upgradeTypes" Name="Pilot" Value="+1"/></RULE><RULE Event="CanBuy"><CHECK Field="level" Op=">" Value="2"/></RULE></UPGRADE>
     <UPGRADE Name="Autoblaster" Type="Cannon" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Heavy Laser Cannon" Type="Cannon" Cost="7" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Anti-Pursuit Lasers" Type="Modification" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize="Large"/>
     <UPGRADE Name="Advanced Cloaking Device" Type="Modification" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="TIE Phantom" ShipSize=""/>
     <UPGRADE Name="Stygium Particle Accelerator" Type="Modification" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Shield Upgrade" Type="Modification" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="B-Wing/E2" Type="Modification" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="B-Wing" ShipSize=""/>
+    <UPGRADE Name="B-Wing/E2" Type="Modification" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="B-Wing" ShipSize=""><RULE Event="OnBuy"><MODIFY Field="upgradeTypes" Name="Crew" Value="+1"/></RULE></UPGRADE>
     <UPGRADE Name="Stealth Device" Type="Modification" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Engine Upgrade" Type="Modification" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Seismic Charges" Type="Bomb" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
@@ -86,7 +86,7 @@
     <UPGRADE Name="Push The Limit" Type="Pilot" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Draw Their Fire" Type="Pilot" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Mercenary Copilot" Type="Crew" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="Slave I" Type="Title" Cost="0" FleetType="" Unique="TRUE" Limited="FALSE" Ship="Firespray-31" ShipSize=""/>
+    <UPGRADE Name="Slave I" Type="Title" Cost="0" FleetType="" Unique="TRUE" Limited="FALSE" Ship="Firespray-31" ShipSize=""><RULE Event="OnBuy"><MODIFY Field="upgradeTypes" Name="Torpedo" Value="+1"/></RULE></UPGRADE>
     <UPGRADE Name="Gunner" Type="Crew" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Advanced Proton Torpedoes" Type="Torpedo" Cost="6" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="Tibanna Gas Supplies" Type="Energy" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
@@ -96,7 +96,7 @@
     <UPGRADE Name="Gunnery Team" Type="Team" Cost="4" FleetType="" Unique="FALSE" Limited="TRUE" Ship="" ShipSize=""/>
     <UPGRADE Name="Sensor Team" Type="Team" Cost="4" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="R3-A2" Type="Astromech" Cost="2" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
-    <UPGRADE Name="R2-D6" Type="Astromech" Cost="1" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="R2-D6" Type="Astromech" Cost="1" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""><RULE Event="OnBuy"><MODIFY Field="upgradeTypes" Name="Pilot" Value="+1"/></RULE><RULE Event="CanBuy"><CHECK Field="upgradeTypes" Name="Pilot" Op="=" Value="0"/><CHECK Field="level" Op=">" Value="3"/></RULE></UPGRADE>
     <UPGRADE Name="R4-D6" Type="Astromech" Cost="1" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="R5-P9" Type="Astromech" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
     <UPGRADE Name="WED-15 Repair Droid" Type="Crew" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize="Huge"/>
@@ -112,90 +112,115 @@
     <UPGRADE Name="Quatum Storm" Type="Title" Cost="4" FleetType="" Unique="TRUE" Limited="FALSE" Ship="GR-75" ShipSize=""/>
     <UPGRADE Name="Dutyfree" Type="Title" Cost="2" FleetType="" Unique="TRUE" Limited="FALSE" Ship="GR-75" ShipSize=""/>
     <UPGRADE Name="Combat Retrofit" Type="Modification" Cost="10" FleetType="" Unique="FALSE" Limited="FALSE" Ship="GR-75" ShipSize=""/>
+    <UPGRADE Name="Experimental Interface" Type="Modification" Cost="3" FleetType="" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Counter-Measures" Type="Modification" Cost="3" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize="Large"/>
+    <UPGRADE Name="Outrider" Type="Title" Cost="5" FleetType="" Unique="TRUE" Limited="FALSE" Ship="YT-2400" ShipSize=""/>
+    <UPGRADE Name="Lone Wolf" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Leebo" Type="Crew" Cost="2" FleetType="Rebel" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Lando Calrissian" Type="Crew" Cost="3" FleetType="Rebel" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Stay On Target" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Dash Rendar" Type="Crew" Cost="2" FleetType="Rebel" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Ruthlessness" Type="Pilot" Cost="3" FleetType="Imperial" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Intimidation" Type="Pilot" Cost="2" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Ion Torpedoes" Type="Torpedo" Cost="5" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Moff Jerjerrod" Type="Crew" Cost="2" FleetType="Imperial" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Mara Jade" Type="Crew" Cost="3" FleetType="Imperial" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Fleet Officer" Type="Crew" Cost="3" FleetType="Imperial" Unique="FALSE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Ysanne Isard" Type="Crew" Cost="4" FleetType="Imperial" Unique="TRUE" Limited="FALSE" Ship="" ShipSize=""/>
+    <UPGRADE Name="Dauntless" Type="Title" Cost="2" FleetType="" Unique="TRUE" Limited="FALSE" Ship="VT-49 Decimator" ShipSize=""/>
+    <UPGRADE Name="Tactical Jammer" Type="Modification" Cost="1" FleetType="" Unique="FALSE" Limited="FALSE" Ship="" ShipSize="Large"/>
   </UPGRADES>
   <SHIPS>
-    <SHIP Name="Black Squadron Pilot" Type="TIE Fighter" Cost="14" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="&quot;Howlrunner&quot;" Type="TIE Fighter" Cost="18" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="&quot;Night Beast&quot;" Type="TIE Fighter" Cost="15" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="Academy Pilot" Type="TIE Fighter" Cost="12" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="&quot;Backstabber&quot;" Type="TIE Fighter" Cost="16" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="&quot;Dark Curse&quot;" Type="TIE Fighter" Cost="16" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="&quot;Winged Gundark&quot;" Type="TIE Fighter" Cost="15" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="&quot;Whisper&quot;" Type="TIE Phantom" Cost="32" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Crew"/>
-    <SHIP Name="Shadow Squadron Pilot" Type="TIE Phantom" Cost="27" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="System,Crew"/>
-    <SHIP Name="&quot;Echo&quot;" Type="TIE Phantom" Cost="30" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Crew"/>
-    <SHIP Name="Sigma Squadron Pilot" Type="TIE Phantom" Cost="25" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="System,Crew"/>
-    <SHIP Name="Bounty Hunter" Type="Firespray-31" Cost="33" FleetType="Imperial" Unique="FALSE" Size="Large" UpgradeTypes="Cannon,Bomb,Crew,Missile"/>
-    <SHIP Name="Kath Scarlet" Type="Firespray-31" Cost="38" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Bomb,Crew,Missile"/>
-    <SHIP Name="Krassis Trelix" Type="Firespray-31" Cost="36" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Cannon,Bomb,Crew,Missile"/>
-    <SHIP Name="Storm Squadron Pilot" Type="TIE Advanced" Cost="23" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Maarek Stele" Type="TIE Advanced" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Tempest Squadron Pilot" Type="TIE Advanced" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Major Rhymer" Type="TIE Bomber" Cost="26" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Torpedo,Missile,Missile,Bomb"/>
-    <SHIP Name="Gamma Squadron Pilot" Type="TIE Bomber" Cost="18" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Torpedo,Missile,Missile,Bomb"/>
-    <SHIP Name="Scimitar Squadron Pilot" Type="TIE Bomber" Cost="16" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Torpedo,Missile,Missile,Bomb"/>
-    <SHIP Name="Rexler Brath" Type="TIE Defender" Cost="37" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Cannon,Missile"/>
-    <SHIP Name="Colonel Vessery" Type="TIE Defender" Cost="35" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Cannon,Missile"/>
-    <SHIP Name="Onyx Squadron Pilot" Type="TIE Defender" Cost="32" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Cannon,Missile"/>
-    <SHIP Name="Delta Squadron Pilot" Type="TIE Defender" Cost="30" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Cannon,Missile"/>
-    <SHIP Name="Colonel Jendon" Type="Lambda-Class Shuttle" Cost="26" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
-    <SHIP Name="Captain Yorr" Type="Lambda-Class Shuttle" Cost="24" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
-    <SHIP Name="Omicron Group Pilot" Type="Lambda-Class Shuttle" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
-    <SHIP Name="Saber Squadron Pilot" Type="TIE Interceptor" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="&quot;Fel's Wrath&quot;" Type="TIE Interceptor" Cost="23" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="Turr Phennir" Type="TIE Interceptor" Cost="25" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="Soontir Fel" Type="TIE Interceptor" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="Alpha Squadron Pilot" Type="TIE Interceptor" Cost="18" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="Avenger Squadron Pilot" Type="TIE Interceptor" Cost="20" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="Captain Kagi" Type="Lambda-Class Shuttle" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
-    <SHIP Name="Boba Fett" Type="Firespray-31" Cost="39" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Bomb,Crew,Missile"/>
-    <SHIP Name="Obsidian Squadron Pilot" Type="TIE Fighter" Cost="13" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
-    <SHIP Name="&quot;Mauler Mithel&quot;" Type="TIE Fighter" Cost="17" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
-    <SHIP Name="Darth Vader" Type="TIE Advanced" Cost="29" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Captain Jonus" Type="TIE Bomber" Cost="22" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Torpedo,Missile,Missile,Bomb"/>
-    <SHIP Name="Etahn A'baht" Type="E-Wing" Cost="32" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Torpedo,Astromech"/>
-    <SHIP Name="Ten Numb" Type="B-Wing" Cost="31" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Wedge Antilles" Type="X-Wing" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
-    <SHIP Name="Knave Squadron Pilot" Type="E-Wing" Cost="27" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Torpedo,Astromech"/>
-    <SHIP Name="Bandit Squadron Pilot" Type="Z-95 Headhunter" Cost="12" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Tala Squadron Pilot" Type="Z-95 Headhunter" Cost="13" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Lieutenant Blount" Type="Z-95 Headhunter" Cost="17" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Airen Cracken" Type="Z-95 Headhunter" Cost="19" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Chewbacca" Type="YT-1300" Cost="42" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
-    <SHIP Name="Outer Rim Smuggler" Type="YT-1300" Cost="27" FleetType="Rebel" Unique="FALSE" Size="Large" UpgradeTypes="Crew,Crew"/>
-    <SHIP Name="Han Solo" Type="YT-1300" Cost="46" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
-    <SHIP Name="Lando Calrissian" Type="YT-1300" Cost="44" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
-    <SHIP Name="Red Squadron Pilot" Type="X-Wing" Cost="23" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="Rookie Pilot" Type="X-Wing" Cost="21" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="Luke Skywalker" Type="X-Wing" Cost="28" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
-    <SHIP Name="Garven Dreis" Type="X-Wing" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="Biggs Darklighter" Type="X-Wing" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="Tycho Celchu" Type="A-Wing" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Green Squadron Pilot" Type="A-Wing" Cost="19" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Arvel Crynyd" Type="A-Wing" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Jake Farrell" Type="A-Wing" Cost="24" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
-    <SHIP Name="Dagger Squadron Pilot" Type="B-Wing" Cost="24" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Ibtisam" Type="B-Wing" Cost="28" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Blue Squadron Pilot" Type="B-Wing" Cost="22" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Nera Dantels" Type="B-Wing" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Keyan Farlander" Type="B-Wing" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
-    <SHIP Name="Gray Squadron Pilot" Type="Y-Wing" Cost="20" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
-    <SHIP Name="Horton Salm" Type="Y-Wing" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
-    <SHIP Name="Gold Squadron Pilot" Type="Y-Wing" Cost="18" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
-    <SHIP Name="&quot;Dutch&quot; Vander" Type="Y-Wing" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
-    <SHIP Name="Blackmoon Squadron Pilot" Type="E-Wing" Cost="29" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Torpedo,Astromech"/>
-    <SHIP Name="Corran Horn" Type="E-Wing" Cost="35" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Torpedo,Astromech"/>
-    <SHIP Name="Kyle Katarn" Type="HWK-290" Cost="21" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Turret,Crew"/>
-    <SHIP Name="Jan Ors" Type="HWK-290" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Turret,Crew"/>
-    <SHIP Name="Roark Garnet" Type="HWK-290" Cost="19" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Crew"/>
-    <SHIP Name="Rebel Operative" Type="HWK-290" Cost="16" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Crew"/>
-    <SHIP Name="Gemmer Sojan" Type="A-Wing" Cost="22" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="Prototype Pilot" Type="A-Wing" Cost="17" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
-    <SHIP Name="GR-75 Medium Transport" Type="GR-75" Cost="30" FleetType="Rebel" Unique="FALSE" Size="Huge" UpgradeTypes="Crew,Crew,Energy,Energy,Energy"/>
-    <SHIP Name="Wes Janson" Type="X-Wing" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
-    <SHIP Name="Jek Porkins" Type="X-Wing" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
-    <SHIP Name="&quot;Hobbie&quot; Klivian" Type="X-Wing" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="Tarn Mison" Type="X-Wing" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
-    <SHIP Name="CR90 Corvette" Type="CR90" Cost="90" FleetType="Rebel" Unique="FALSE" Size="Huge" UpgradeTypes="Crew,Capitol,Capitol,Team,Team,Energy,Crew,Capitol,Team,Energy"/>
+    <SHIP Name="Black Squadron Pilot" Type="TIE Fighter" Level="4" Cost="14" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="&quot;Howlrunner&quot;" Type="TIE Fighter" Level="8" Cost="18" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="&quot;Night Beast&quot;" Type="TIE Fighter" Level="5" Cost="15" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="Academy Pilot" Type="TIE Fighter" Level="1" Cost="12" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="&quot;Backstabber&quot;" Type="TIE Fighter" Level="6" Cost="16" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="&quot;Dark Curse&quot;" Type="TIE Fighter" Level="6" Cost="16" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="&quot;Winged Gundark&quot;" Type="TIE Fighter" Level="5" Cost="15" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="&quot;Whisper&quot;" Type="TIE Phantom" Level="7" Cost="32" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Crew"/>
+    <SHIP Name="Shadow Squadron Pilot" Type="TIE Phantom" Level="5" Cost="27" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="System,Crew"/>
+    <SHIP Name="&quot;Echo&quot;" Type="TIE Phantom" Level="6" Cost="30" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Crew"/>
+    <SHIP Name="Sigma Squadron Pilot" Type="TIE Phantom" Level="3" Cost="25" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="System,Crew"/>
+    <SHIP Name="Bounty Hunter" Type="Firespray-31" Level="3" Cost="33" FleetType="Imperial" Unique="FALSE" Size="Large" UpgradeTypes="Cannon,Bomb,Crew,Missile"/>
+    <SHIP Name="Kath Scarlet" Type="Firespray-31" Level="7" Cost="38" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Bomb,Crew,Missile"/>
+    <SHIP Name="Krassis Trelix" Type="Firespray-31" Level="5" Cost="36" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Cannon,Bomb,Crew,Missile"/>
+    <SHIP Name="Storm Squadron Pilot" Type="TIE Advanced" Level="4" Cost="23" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Maarek Stele" Type="TIE Advanced" Level="7" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Tempest Squadron Pilot" Type="TIE Advanced" Level="2" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Major Rhymer" Type="TIE Bomber" Level="7" Cost="26" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Torpedo,Missile,Missile,Bomb"/>
+    <SHIP Name="Gamma Squadron Pilot" Type="TIE Bomber" Level="4" Cost="18" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Torpedo,Missile,Missile,Bomb"/>
+    <SHIP Name="Scimitar Squadron Pilot" Type="TIE Bomber" Level="2" Cost="16" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Torpedo,Missile,Missile,Bomb"/>
+    <SHIP Name="Rexler Brath" Type="TIE Defender" Level="8" Cost="37" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Cannon,Missile"/>
+    <SHIP Name="Colonel Vessery" Type="TIE Defender" Level="6" Cost="35" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Cannon,Missile"/>
+    <SHIP Name="Onyx Squadron Pilot" Type="TIE Defender" Level="3" Cost="32" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Cannon,Missile"/>
+    <SHIP Name="Delta Squadron Pilot" Type="TIE Defender" Level="1" Cost="30" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Cannon,Missile"/>
+    <SHIP Name="Colonel Jendon" Type="Lambda-Class Shuttle" Level="6" Cost="26" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
+    <SHIP Name="Captain Yorr" Type="Lambda-Class Shuttle" Level="4" Cost="24" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
+    <SHIP Name="Omicron Group Pilot" Type="Lambda-Class Shuttle" Level="2" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
+    <SHIP Name="Saber Squadron Pilot" Type="TIE Interceptor" Level="4" Cost="21" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="&quot;Fel's Wrath&quot;" Type="TIE Interceptor" Level="5" Cost="23" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="Turr Phennir" Type="TIE Interceptor" Level="7" Cost="25" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="Soontir Fel" Type="TIE Interceptor" Level="9" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="Alpha Squadron Pilot" Type="TIE Interceptor" Level="1" Cost="18" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="Avenger Squadron Pilot" Type="TIE Interceptor" Level="3" Cost="20" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="Captain Kagi" Type="Lambda-Class Shuttle" Level="8" Cost="27" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="System,Cannon,Crew,Crew"/>
+    <SHIP Name="Boba Fett" Type="Firespray-31" Level="8" Cost="39" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Bomb,Crew,Missile"/>
+    <SHIP Name="Obsidian Squadron Pilot" Type="TIE Fighter" Level="3" Cost="13" FleetType="Imperial" Unique="FALSE" Size="Small" UpgradeTypes=""/>
+    <SHIP Name="&quot;Mauler Mithel&quot;" Type="TIE Fighter" Level="7" Cost="17" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot"/>
+    <SHIP Name="Darth Vader" Type="TIE Advanced" Level="9" Cost="29" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Captain Jonus" Type="TIE Bomber" Level="6" Cost="22" FleetType="Imperial" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Torpedo,Missile,Missile,Bomb"/>
+    <SHIP Name="Etahn A'baht" Type="E-Wing" Level="5" Cost="32" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Torpedo,Astromech"/>
+    <SHIP Name="Ten Numb" Type="B-Wing" Level="8" Cost="31" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Wedge Antilles" Type="X-Wing" Level="9" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
+    <SHIP Name="Knave Squadron Pilot" Type="E-Wing" Level="1" Cost="27" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Torpedo,Astromech"/>
+    <SHIP Name="Bandit Squadron Pilot" Type="Z-95 Headhunter" Level="2" Cost="12" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Tala Squadron Pilot" Type="Z-95 Headhunter" Level="4" Cost="13" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Lieutenant Blount" Type="Z-95 Headhunter" Level="6" Cost="17" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Airen Cracken" Type="Z-95 Headhunter" Level="8" Cost="19" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Chewbacca" Type="YT-1300" Level="5" Cost="42" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
+    <SHIP Name="Outer Rim Smuggler" Type="YT-1300" Level="1" Cost="27" FleetType="Rebel" Unique="FALSE" Size="Large" UpgradeTypes="Crew,Crew"/>
+    <SHIP Name="Han Solo" Type="YT-1300" Level="9" Cost="46" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
+    <SHIP Name="Lando Calrissian" Type="YT-1300" Level="7" Cost="44" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Missile,Crew,Crew"/>
+    <SHIP Name="Red Squadron Pilot" Type="X-Wing" Level="4" Cost="23" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="Rookie Pilot" Type="X-Wing" Level="2" Cost="21" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="Luke Skywalker" Type="X-Wing" Level="8" Cost="28" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
+    <SHIP Name="Garven Dreis" Type="X-Wing" Level="6" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="Biggs Darklighter" Type="X-Wing" Level="5" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="Tycho Celchu" Type="A-Wing" Level="8" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Green Squadron Pilot" Type="A-Wing" Level="3" Cost="19" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Arvel Crynyd" Type="A-Wing" Level="6" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Jake Farrell" Type="A-Wing" Level="" Cost="24" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Missile"/>
+    <SHIP Name="Dagger Squadron Pilot" Type="B-Wing" Level="4" Cost="24" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Ibtisam" Type="B-Wing" Level="6" Cost="28" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Blue Squadron Pilot" Type="B-Wing" Level="2" Cost="22" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Nera Dantels" Type="B-Wing" Level="" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Keyan Farlander" Type="B-Wing" Level="" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Cannon,Torpedo,Torpedo"/>
+    <SHIP Name="Gray Squadron Pilot" Type="Y-Wing" Level="4" Cost="20" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
+    <SHIP Name="Horton Salm" Type="Y-Wing" Level="8" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
+    <SHIP Name="Gold Squadron Pilot" Type="Y-Wing" Level="2" Cost="18" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
+    <SHIP Name="&quot;Dutch&quot; Vander" Type="Y-Wing" Level="6" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Torpedo,Torpedo,Astromech"/>
+    <SHIP Name="Blackmoon Squadron Pilot" Type="E-Wing" Level="3" Cost="29" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="System,Torpedo,Astromech"/>
+    <SHIP Name="Corran Horn" Type="E-Wing" Level="8" Cost="35" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,System,Torpedo,Astromech"/>
+    <SHIP Name="Kyle Katarn" Type="HWK-290" Level="6" Cost="21" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Turret,Crew"/>
+    <SHIP Name="Jan Ors" Type="HWK-290" Level="8" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Turret,Crew"/>
+    <SHIP Name="Roark Garnet" Type="HWK-290" Level="4" Cost="19" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Turret,Crew"/>
+    <SHIP Name="Rebel Operative" Type="HWK-290" Level="2" Cost="16" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Turret,Crew"/>
+    <SHIP Name="Gemmer Sojan" Type="A-Wing" Level="" Cost="22" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="Prototype Pilot" Type="A-Wing" Level="1" Cost="17" FleetType="Rebel" Unique="FALSE" Size="Small" UpgradeTypes="Missile"/>
+    <SHIP Name="GR-75 Medium Transport" Type="GR-75" Level="" Cost="30" FleetType="Rebel" Unique="FALSE" Size="Huge" UpgradeTypes="Crew,Crew,Energy,Energy,Energy"/>
+    <SHIP Name="Wes Janson" Type="X-Wing" Level="" Cost="29" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
+    <SHIP Name="Jek Porkins" Type="X-Wing" Level="" Cost="26" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Pilot,Torpedo,Astromech"/>
+    <SHIP Name="&quot;Hobbie&quot; Klivian" Type="X-Wing" Level="" Cost="25" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="Tarn Mison" Type="X-Wing" Level="" Cost="23" FleetType="Rebel" Unique="TRUE" Size="Small" UpgradeTypes="Torpedo,Astromech"/>
+    <SHIP Name="CR90 Corvette" Type="CR90" Level="" Cost="90" FleetType="Rebel" Unique="FALSE" Size="Huge" UpgradeTypes="Crew,Capitol,Capitol,Team,Team,Energy,Crew,Capitol,Team,Energy"/>
+    <SHIP Name="Dash Rendar" Type="YT-2400" Level="7" Cost="36" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Missile,Crew"/>
+    <SHIP Name="Eaden Vrill" Type="YT-2400" Level="3" Cost="32" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Cannon,Missile,Crew"/>
+    <SHIP Name="Leebo" Type="YT-2400" Level="5" Cost="34" FleetType="Rebel" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Cannon,Missile,Crew"/>
+    <SHIP Name="Wild Space Fringer" Type="YT-2400" Level="2" Cost="30" FleetType="Rebel" Unique="FALSE" Size="Large" UpgradeTypes="Cannon,Missile,Crew"/>
+    <SHIP Name="Captain Oicunn" Type="VT-49 Decimator" Level="4" Cost="42" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Torpedo,Crew,Crew,Crew,Bomb"/>
+    <SHIP Name="Rear Admiral Chiraneau" Type="VT-49 Decimator" Level="8" Cost="46" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Torpedo,Crew,Crew,Crew,Bomb"/>
+    <SHIP Name="Commander Kenkirk" Type="VT-49 Decimator" Level="6" Cost="44" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Pilot,Torpedo,Crew,Crew,Crew,Bomb"/>
+    <SHIP Name="Patrol Leader" Type="VT-49 Decimator" Level="3" Cost="40" FleetType="Imperial" Unique="TRUE" Size="Large" UpgradeTypes="Torpedo,Crew,Crew,Crew,Bomb"/>
   </SHIPS>
 </DATA>

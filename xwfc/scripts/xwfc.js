@@ -22,6 +22,36 @@ XWFC = {
 		$( "#" + id ).fadeIn( "slow" );
 	},
 
+	savePopup: function() {
+		var xml = XWFC.fleet.toSaveXML();
+		$( "#LoadBtn" ).hide();
+		$( "#XML textarea" ).val( xml );
+		$( "#XML" ).fadeIn( "slow" );
+	},
+
+	loadPopup: function() {
+		$( "#LoadBtn" ).show();
+		$( "#XML" ).fadeIn( "slow" );
+	},
+
+	load: function() {
+		var success = false;
+		try {
+			var xml = $.parseXML($( "#XML textarea" ).val());
+			success = XWFC.fleet.fromSaveXML(xml);
+		} catch (err) {}
+		if (success) {
+			$( "#XML textarea" ).removeClass( 'warning' );
+			this.closePopup('XML');
+		} else {
+			$( "#XML textarea" ).addClass( 'warning' );
+		}
+	},
+
+	reset: function() {
+		XWFC.fleet.reset();
+	},
+
  	Fleet: function() {
 		this.upgrades = [];
 		this.ships = [];
@@ -43,6 +73,54 @@ XWFC = {
 		this.fleet = [];
 		this.shipSort = { field:null, dir:null };
 		this.upgradeSort = { field:null, dir:null };
+
+		this.reset = function() {
+			this.fleet = [];
+			this.selectedShip = null;
+			this.updateFleetTable();
+            if (this.fleet.length == 0) {
+                $( "#FleetType" ).attr( 'disabled', null );
+                $( "#FleetType" ).removeClass( 'disabled' );
+            }
+		}
+
+		this.toSaveXML = function() {
+			var xml = '<FLEET Type="{0}">\n'.format(this.fleetType);
+			this.fleet.map(function(ship) {
+				xml += '  <SHIP Name="{0}">\n'.format(ship.name);
+				ship.upgrades.map(function(upgrade) {
+					xml += '    <UPGRADE Name="{0}"/>\n'.format(upgrade.name);
+				});
+				xml += '  </SHIP>\n';
+			});
+			xml += '</FLEET>';
+			return xml;
+		}
+
+		this.fromSaveXML = function(text) {
+			this.reset();
+			var xml = $( text );
+			var type = xml.find( "FLEET" ).first().attr( "Type" );
+			if (type) {
+				$( "#FleetType" ).val( type );
+				this.setFleetType( type );
+			} else { 
+				return false;
+			}
+			var self = this;
+			xml.find( "SHIP" ).each( function(ship) {
+				self.selectedShip = self.addShip( $( this ).attr( "Name" ) );
+				if (!self.selectedShip) {
+					return false;
+				}
+				$( this ).find( "UPGRADE" ).each( function(upgrade) {
+					if (!self.addUpgrade( $( this ).attr( "Name" ) )) {
+						return false;
+					}
+				} );
+			} );
+			return true;
+		}
 
 		this.sort = function(type, field, dir) {
 			if (type == "Ships") {
@@ -89,7 +167,7 @@ XWFC = {
             ship.upgrades.map(function(upgrade) {
                 name = unescape(upgrade.name);
                 img = name.toLowerCase().replace(/"/g, '').replace(/ /g, '_').replace(/'/g, '').replace(/\//g, '-');
-                html += '<img src="images/upgrades/{0}.png" />'.format(img);
+                html += '<img src="images/upgrades/{0}.png" class="upgrade" />'.format(img);
             });
             html += '</span>';
             html += '</a>';
@@ -277,6 +355,7 @@ XWFC = {
                 $( "#FleetType" ).attr( 'disabled', 'disabled' );
                 $( "#FleetType" ).addClass( 'disabled' );
             }
+            return ship;
 		}
         
         this.addUpgrade = function(name) {
@@ -286,6 +365,7 @@ XWFC = {
             this.selectedShip.upgrades.push(upgrade);
             this.updateUpgradeTable();
             this.updateFleetTable();
+            return upgrade;
         }
 
         this.removeUpgrade = function(name) {

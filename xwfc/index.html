@@ -23,6 +23,18 @@
             <option value="Imperial">Imperial</option>
             <option value="Rebel">Rebel</option>
         </select>
+		<div class="pure-menu pure-menu-horizontal menu">
+		    <ul class="pure-menu-list">
+		        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+		            <a href="#" class="pure-menu-link">Menu</a>
+		            <ul class="pure-menu-children">
+		                <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="XWFC.savePopup()">Save</a></li>
+		                <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="XWFC.loadPopup()">Load</a></li>
+		                <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="XWFC.reset()">Reset</a></li>
+		            </ul>
+		        </li>
+		    </ul>
+		</div>
         <h1>X-Wing Fleet Creator</h1>
         <table class="pure-table" id="FileLoad">
             <tr><td><label>Select XML data file:</label></td><td><input type="file" id="FileInput" accept=".xml"/></td></tr>
@@ -43,16 +55,24 @@
 		</table>
 	</div>
 	<div id="Upgrades" class="popup">
-		<button class="pure-button close" onclick="XWFC.closePopup('Upgrades')">Close</button>
+		<button class="pure-button" onclick="XWFC.closePopup('Upgrades')">Close</button>
 		<h3>Upgrades</h3>
 		<table class="pure-table pure-table-horizontal">
 		</table>
 	</div>
 	<div id="Ships" class="popup">
-		<button class="pure-button close" onclick="XWFC.closePopup('Ships')">Close</button>
+		<button class="pure-button" onclick="XWFC.closePopup('Ships')">Close</button>
         <h3>Ships</h3>
 		<table class="pure-table pure-table-horizontal">
 		</table>
+	</div>
+	<div id="XML" class="popup">
+		<button class="pure-button" onclick="XWFC.closePopup('XML')">Close</button>
+		<button class="pure-button" id="LoadBtn" onclick="XWFC.load()">Load</button>
+		<h3>Copy/Paste XML:</h3>
+		<div>
+			<textarea></textarea>
+		</div>
 	</div>
 </body>
 

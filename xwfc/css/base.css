@@ -20,6 +20,16 @@ span.dot {
 	padding-bottom: 0.5em;
 }
 
+div.menu {
+    float: left;
+    height: 1em;
+    text-align: left;
+}
+
+div.menu a {
+    color: black;
+}
+
 div.popup {
 	position: fixed;
 	background-color: #FAFAFA;
@@ -43,13 +53,41 @@ div.popup table {
     margin-bottom: 0.5em;
 }
 
+div#XML {
+    overflow: none;
+}
+
+div#XML div {
+    padding: 1em;
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+.warning {
+    border: 2px solid red;
+    background-color: #FADADA;
+}
+
+div#XML div textarea {
+    width: 100%;
+    height: 80%;
+    padding: 0.5em;
+    vertical-align: top;
+    overflow: auto;
+}
+
 button {
     text-transform: uppercase;
 }
 
-button.close {
+div.popup button {
 	float: right;
 	margin-top: 0.5em;
+}
+
+div.popup button#LoadBtn {
+    margin-right: 0.5em;
+    display: none;
 }
 
 a.sort {
@@ -170,11 +208,25 @@ a.tooltip {
 a.tooltip span.image {
     display: none;
     position: fixed;
-    left: 20%;
+    left: 10%;
 }
 
 a.tooltip span.image img {
     margin: 0.5em;
+}
+
+a.tooltip span.image img.upgrade {
+    transition: all 0.5s ease-in-out;
+    margin-left: -150px;
+}
+
+a.tooltip span.image img.upgrade:hover + img.upgrade {
+    transition: all 0.5s ease-in-out;
+    margin-left: 0.5em;
+}
+
+a.tooltip span.image img.upgrade:nth-child(2) {
+    margin-left: 0.5em;
 }
 
 div#Main a.tooltip span.image img {

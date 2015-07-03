@@ -1,11 +1,16 @@
 body {
 	background-color: #DADADA;
-	font-family: "Fira Sans Mono", "Lucida Console", Monaco, monospace;
+	font-family: "Droid Sans Mono", "Lucida Console", Monaco, monospace;
+	background-image: url("../images/se.png");
+	background-size: 100%;
 }
 
 h1 {
 	text-align: center;
-	font-family: "Fira Sans", sans-serif;
+	font-family: "Orbitron", sans-serif;
+	font-variant: small-caps;
+	color: white;
+	text-shadow: 0 0 3px black, 0 0 5px black;
 }
 
 tr button {
@@ -34,10 +39,18 @@ div#Body {
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	background-color: #FAFAFA;
+	background-color: rgba(250, 250, 250, 0.7);
 	padding-left: 1em;
 	padding-right: 1em;
 	overflow: auto;
+}
+
+div#Body table {
+	background-color: rgba(250, 250, 250, 1.0);
+}
+
+div#Body table th, td {
+	color: #3F3F3F;
 }
 
 table#FileLoad {
@@ -50,6 +63,10 @@ table#FileLoad {
     float: right;
     text-align: right;
     display: none;
+}
+
+.menu a {
+	color: #3F3F3F;
 }
 
 .popup {

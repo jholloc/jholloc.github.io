@@ -151,8 +151,13 @@ button {
                 name = name + names[randInt(names.length)];
             }
         }
-        name = name.replace(/e|g|i|o|s/g, function repl(x) {
-            var trans = { e:3, g:9, i:1, o:0, s:5 };
+        var lastChar = name.charAt(name.length-1).toUpperCase();
+        if (lastChar != 'Z' && lastChar != 'S' && lastChar != 'Y' && lastChar != 'X' && lastChar != 'H'
+                && Math.random() < 0.5) {
+            name = name + 'z';
+        }
+        name = name.replace(/e|g|i|o|s|z/g, function repl(x) {
+            var trans = { e:3, g:9, i:1, o:0, s:5, z:2 };
             if (Math.random() < 0.2) {
                 return trans[x];
             } else {

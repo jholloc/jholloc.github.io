@@ -1,0 +1,13 @@
+article p:nth-child(n + 2) {
+    text-align: left;
+}
+
+.nested-links img {
+    width: auto;
+    max-width: none;
+    display: inline;
+}
+
+.custom-gallery .vbox-title {
+    font-size: large;
+}

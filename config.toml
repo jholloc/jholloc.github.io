@@ -1,5 +1,5 @@
 title = "Climbing Coder"
-baseURL = "https://hollocom.be"
+baseURL = "https://jholloc.github.io"
 languageCode = "en-gb"
 theme = "ananke"
 resourceDir = "../resources"
